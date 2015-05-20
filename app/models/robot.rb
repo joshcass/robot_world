@@ -7,6 +7,7 @@ class Robot
               :date_hired,
               :department,
               :avatar,
+              :feeling
 
   def initialize(data)
     @id         = data["id"]
@@ -17,5 +18,6 @@ class Robot
     @date_hired = data["date_hired"]
     @department = data["department"]
     @avatar     = data["avatar"]
+    @feeling    = data["feeling"]
   end
 end

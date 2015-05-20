@@ -3,7 +3,7 @@ require_relative 'robot'
 
 class RobotWorld
   def self.database
-    @database ||= YAML::Store.new("db/task_manager")
+    @database ||= YAML::Store.new("db/robot_world")
   end
 
   def self.create(robot)
@@ -12,13 +12,14 @@ class RobotWorld
       database['total'] ||= 0
       database['total'] += 1
       database['robots'] << { "id"          => database['total'],
-                              "name"        => robot[:@name],
-                              "city"        => robot[:@city],
-                              "state"       => robot[:@state],
-                              "birthdate"   => robot[:@birthdate],
-                              "date_hired"  => robot[:@date_hired],
-                              "departement" => robot[:@department],
-                              "avatar"      => robot[:@avatar]
+                              "name"        => robot[:name],
+                              "city"        => robot[:city],
+                              "state"       => robot[:state],
+                              "birthdate"   => robot[:birthdate],
+                              "date_hired"  => robot[:date_hired],
+                              "department" => robot[:department],
+                              "avatar"      => robot[:avatar],
+                              "feeling"     => robot[:feeling]
                               }
     end
   end
@@ -44,13 +45,14 @@ class RobotWorld
   def self.update(id, data)
     database.transaction do
       target = database['robots'].find { |robot| robot["id"] == id }
-      target["name"]       = data[:@name]
-      target["city"]       = data[:@city]
-      target["state"]      = data[:@state]
-      target["birthdate"]  = data[:@birthdate]
-      target["date_hired"] = data[:@date_hired]
-      target["department"] = data[:@department]
-      target["avatar"]     = data[:@avatar]
+      target["name"]       = data[:name]
+      target["city"]       = data[:city]
+      target["state"]      = data[:state]
+      target["birthdate"]  = data[:birthdate]
+      target["date_hired"] = data[:date_hired]
+      target["department"] = data[:department]
+      target["avatar"]     = data[:avatar]
+      target["feeling"]    = data[:feeling]
     end
   end
 

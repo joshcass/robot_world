@@ -1,13 +1,13 @@
 <h1>Activate your Robot</h1>
 
-<form action="/robots/<%= @robot.id %>" method="POST">
-  <input type="hidden" value="PUT" name="_method">
-  <input type="text" name="robot[name]" value="<%= @robot.name %>"><br>
-  <input type="text" name="robot[city]" value="<%= @robot.city %>"><br/>
-  <input type="text" name="robot[state]" value="<%= @robot.state %>"><br/>
-  <input type="text" name="robot[birthdate]" value="<%= @robot.birthdate %>"><br/>
-  <input type="text" name="robot[date_hired]" value="<%= @robot.date_hired %>"><br/>
-  <input type="text" name="robot[department]" value="<%= @robot.department %>"><br/>
-  <input type="text" name="robot[avatar]" value="<%= @robot.avatar %>"><br/>
-  <input type="submit" value="Update Robot"/>
+<form action="/robots" method="POST">
+  Name:       <input type="text" name="robot[name]"><br/>
+  City:       <input type="text" name="robot[city]"><br/>
+  State:      <input type="text" name="robot[state]"><br/>
+  Birthdate:  <input type="text" name="robot[birthdate]"><br/>
+  Date Hired: <input type="text" name="robot[date_hired]"><br/>
+  Department: <input type="text" name="robot[department]"><br/>
+  Avatar:     <input type="text" name="robot[avatar]"><br/>
+  Feeling:    <input type="text" name="robot[feeling]"><br/>
+  <input type="submit" value="Activate Robot"/>
 </form>

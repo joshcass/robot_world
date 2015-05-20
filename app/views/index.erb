@@ -1,7 +1,7 @@
 <h1>Meet the Robots</h1>
 
 <% @robots.each do |robot| %>
-  <a href="/robots/<%= robot.id %>"><%= robot.name %></a>
+  <h2><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h2>
   <a href="/robots/<%= robot.id %>/edit">Edit</a>
   <form action="/robots/<%= robot.id %>" method="POST">
     <input type="hidden" value="DELETE" name="_method">
