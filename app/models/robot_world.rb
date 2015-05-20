@@ -1,5 +1,4 @@
 require 'yaml/store'
-require_relative 'robot'
 
 class RobotWorld
   def self.database
