@@ -9,7 +9,7 @@ class RobotWorldApp < Sinatra::Base
   end
 
   get '/robots' do
-    @tasks = TaskManager.all
+    @robots = RobotWorld.all
     erb :index
   end
 
@@ -18,12 +18,12 @@ class RobotWorldApp < Sinatra::Base
   end
 
   post '/robots' do
-    TaskManager.create(params[:task])
+    RobotWorld.create(params[:robot])
     redirect '/robots'
   end
 
   get '/robots/:id' do |id|
-    @task = TaskManager.find(id.to_i)
+    @robot = RobotWorld.find(id.to_i)
     erb :show
   end
 
@@ -32,17 +32,17 @@ class RobotWorldApp < Sinatra::Base
   end
 
   get '/robots/:id/edit' do |id|
-    @task = TaskManager.find(id.to_i)
+    @robot = RobotWorld.find(id.to_i)
     erb :edit
   end
 
   put '/robots/:id' do |id|
-   TaskManager.update(id.to_i, params[:task])
+   RobotWorld.update(id.to_i, params[:robot])
     redirect "/robots/#{id}"
   end
 
   delete '/robots/:id' do |id|
-    TaskManager.delete(id.to_i)
+    RobotWorld.delete(id.to_i)
     redirect "/robots"
   end
 end

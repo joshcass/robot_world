@@ -1,8 +1,13 @@
-<h3>Edit Task</h3>
+<h1>Edit your Robot</h1>
 
-<form action="/tasks/<%= @task.id %>" method="POST">
+<form action="/robots/<%= @robot.id %>" method="POST">
   <input type="hidden" value="PUT" name="_method">
-  <input type="text" name="task[title]" value="<%= @task.title %>"><br>
-  <textarea name="task[description]"><%= @task.description %></textarea><br/>
-  <input type="submit" value="Update Task"/>
+  <input type="text" name="robot[name]" value="<%= @robot.name %>"><br>
+  <input type="text" name="robot[city]" value="<%= @robot.city %>"><br/>
+  <input type="text" name="robot[state]" value="<%= @robot.state %>"><br/>
+  <input type="text" name="robot[birthdate]" value="<%= @robot.birthdate %>"><br/>
+  <input type="text" name="robot[date_hired]" value="<%= @robot.date_hired %>"><br/>
+  <input type="text" name="robot[department]" value="<%= @robot.department %>"><br/>
+  <input type="text" name="robot[avatar]" value="<%= @robot.avatar %>"><br/>
+  <input type="submit" value="Update Robot"/>
 </form>
