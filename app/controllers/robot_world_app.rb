@@ -38,7 +38,7 @@ class RobotWorldApp < Sinatra::Base
   end
 
   delete '/robots/:id' do |id|
-    RobotWorld.delete(id.to_i)
+    RobotWorld.destroy(id.to_i)
     redirect "/robots"
   end
 end

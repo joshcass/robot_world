@@ -18,3 +18,6 @@ Bundler.require
    set :views, File.join(RobotWorldApp.root, "app", "views")
    set :public_folder, File.join(RobotWorldApp.root, "app", "public")
  end
+
+# configure capybara to put html in tmp
+Capybara.save_and_open_page_path = "tmp"
