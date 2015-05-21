@@ -2,13 +2,13 @@
 
 <form action="/robots/<%= @robot.id %>" method="POST">
   <input type="hidden" value="PUT" name="_method">
-  Name:       <input type="text" name="robot[name]" value="<%= @robot.name %>"><br>
-  City:       <input type="text" name="robot[city]" value="<%= @robot.city %>"><br/>
-  State:      <input type="text" name="robot[state]" value="<%= @robot.state %>"><br/>
-  Birthdate:  <input type="text" name="robot[birthdate]" value="<%= @robot.birthdate %>"><br/>
-  Date Hired: <input type="text" name="robot[date_hired]" value="<%= @robot.date_hired %>"><br/>
-  Department: <input type="text" name="robot[department]" value="<%= @robot.department %>"><br/>
-  Avatar:     <input type="text" name="robot[avatar]" value="<%= @robot.avatar %>"><br/>
-  Feeling:    <input type="text" name="robot[feeling]" value="<%= @robot.feeling %>"><br/>
+  Name:        <input type="text" name="robot[name]" value="<%= @robot.name %>"><br>
+  City:        <input type="text" name="robot[city]" value="<%= @robot.city %>"><br/>
+  State:       <input type="text" name="robot[state]" value="<%= @robot.state %>"><br/>
+  Birthdate:   <input type="text" name="robot[birthdate]" value="<%= @robot.birthdate %>"><br/>
+  Date Hired:  <input type="text" name="robot[date_hired]" value="<%= @robot.date_hired %>"><br/>
+  Department:  <input type="text" name="robot[department]" value="<%= @robot.department %>"><br/>
+  Avatar(URL): <input type="text" name="robot[avatar]" value="<%= @robot.avatar %>"><br/>
+  Feeling:     <input type="text" name="robot[feeling]" value="<%= @robot.feeling %>"><br/>
   <input type="submit" value="Update Robot"/>
 </form>

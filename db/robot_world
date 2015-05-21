@@ -1,12 +1,3 @@
 ---
-robots:
-- id: 4
-  name: Bob
-  city: Chicago
-  state: IL
-  birthdate: 10/15/1888
-  date_hired: 5/14/15
-  department: The Boss
-  avatar: ":("
-  feeling: Blue
-total: 4
+robots: []
+total: 6

@@ -8,12 +8,11 @@ class RobotWorldTest < Minitest::Test
   def test_can_create_a_robot
     robot_world_for({ :name       => "Frank",
                       :department => "Dungeon Economics" })
-
-    robot = RobotWorld.find(1)
-
+    robot_id = RobotWorld.all.last.id
+    robot = RobotWorld.find(robot_id)
     assert_equal "Frank", robot.name
     assert_equal "Dungeon Economics", robot.department
-    assert_equal 1, robot.id
+    assert_equal robot_id, robot.id
   end
 
   def test_can_return_all_robots
@@ -27,14 +26,14 @@ class RobotWorldTest < Minitest::Test
   def test_it_can_find_a_robot
     robot_world_for({:name       => "Frank"},
                     {:name       => "Bob",
-                     :department => "Dungeon Economics"},
+                     :department => "Dungeon Economics",},
                     {:name       => "Sam"})
+    robot_id = RobotWorld.all.last.id
+    robot = RobotWorld.find(robot_id)
 
-    robot = RobotWorld.find(2)
-
-    assert_equal "Bob", robot.name
+    assert_equal "Sam", robot.name
     assert_equal "Dungeon Economics", robot.department
-    assert_equal 2, robot.id
+    assert_equal robot_id, robot.id
   end
 
   def test_it_can_update_a_robot
@@ -42,32 +41,28 @@ class RobotWorldTest < Minitest::Test
                       :department => "Dungeon Economics"})
     update_data = {:name       => "Frank",
                    :department => "Dungeon Recipes"}
-
-    robot = RobotWorld.find(1)
+    robot_id = RobotWorld.all.last.id
+    robot = RobotWorld.find(robot_id)
 
     assert_equal "Bob", robot.name
     assert_equal "Dungeon Economics", robot.department
-    assert_equal 1, robot.id
+    assert_equal robot_id, robot.id
 
-    RobotWorld.update(1, update_data)
-    robot_update = RobotWorld.find(1)
+    RobotWorld.update(robot_id, update_data)
+    robot_update = RobotWorld.find(robot_id)
 
     assert_equal "Frank", robot_update.name
     assert_equal "Dungeon Recipes", robot_update.department
-    assert_equal 1, robot_update.id
+    assert_equal robot_id, robot_update.id
   end
 
   def test_it_can_delete_a_robot
     robot_world_for({:name       => "Frank"},
                     {:name       => "Bob"},
                     {:name       => "Sam"})
-
+    robot_id = RobotWorld.all.last.id
     assert_equal 3, RobotWorld.all.count
-    assert_equal 2, RobotWorld.find(2).id
-
-    RobotWorld.destroy(2)
-
+    RobotWorld.destroy(robot_id)
     assert_equal 2, RobotWorld.all.count
-    assert_equal nil, RobotWorld.raw_robot(2)
   end
 end
