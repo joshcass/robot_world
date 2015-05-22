@@ -1,11 +1,11 @@
+<img src=<%= @robot.avatar %>>
 <h1><%= @robot.name %></h1>
 
 <p>City: <%= @robot.city %></p>
 <p>State: <%= @robot.state %></p>
-<p>Birthdate: <%= @robot.birthdate %></p>
-<p>Date Hired: <%= @robot.date_hired %></p>
+<p>Birthdate: <%= @robot.birthdate.to_s %></p>
+<p>Date Hired: <%= @robot.date_hired.to_s %></p>
 <p>Department: <%= @robot.department %></p>
-<p>Avatar: <%= @robot.avatar%></p>
 <p>Feeling: <%= @robot.feeling %></p>
 
 <a href="/robots">Back to the Robots</a>

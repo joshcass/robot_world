@@ -25,12 +25,13 @@ class RobotWorldTest < Minitest::Test
 
   def test_it_can_find_a_robot
     robot_world_for({:name       => "Frank"},
-                    {:name       => "Bob",
-                     :department => "Dungeon Economics",},
-                    {:name       => "Sam"})
+                    {:name       => "Bob"},
+                    {:name       => "Sam",
+                     :department => "Dungeon Economics"})
     robot_id = RobotWorld.all.last.id
     robot = RobotWorld.find(robot_id)
 
+    binding.pry
     assert_equal "Sam", robot.name
     assert_equal "Dungeon Economics", robot.department
     assert_equal robot_id, robot.id

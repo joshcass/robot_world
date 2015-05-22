@@ -21,9 +21,7 @@ class RobotWorld
   end
 
   def self.all
-    dataset.map do |data|
-      Robot.new(data)
-    end
+    dataset.map { |data| Robot.new(data) }
   end
 
   def self.find(id)
