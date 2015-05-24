@@ -10,18 +10,11 @@ class RobotWorld
   end
 
   def self.create(robot)
-    dataset.insert(:name       => robot[:name],
-                   :city       => robot[:city],
-                   :state      => robot[:state],
-                   :birthdate  => robot[:birthdate],
-                   :date_hired => robot[:date_hired],
-                   :department => robot[:department],
-                   :avatar     => robot[:avatar],
-                   :feeling    => robot[:feeling])
+    dataset.insert robot
   end
 
   def self.all
-    dataset.map { |data| Robot.new(data) }
+    dataset.map { |data| Robot.new data }
   end
 
   def self.find(id)
@@ -30,7 +23,7 @@ class RobotWorld
   end
 
   def self.update(id, data)
-   dataset.where(:id => id).update(data)
+   dataset.where(:id => id).update data
   end
 
   def self.destroy(id)
@@ -42,6 +35,6 @@ class RobotWorld
   end
 
   def self.dataset
-    database.from(:robots)
+    database.from :robots
   end
 end

@@ -5,9 +5,6 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'capybara'
 require 'tilt/erb'
-require 'database_cleaner'
-
-DatabaseCleaner[:sequel].strategy = :transaction
 
 class Minitest::Test
   def teardown
