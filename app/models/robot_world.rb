@@ -1,5 +1,3 @@
-require 'yaml/store'
-
 class RobotWorld
   def self.database
     if ENV["ROBOT_WORLD_ENV"] == "test"
@@ -36,5 +34,8 @@ class RobotWorld
 
   def self.dataset
     database.from :robots
+  end
+
+  def self.signup(user)
   end
 end

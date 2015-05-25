@@ -41,4 +41,17 @@ class RobotWorldApp < Sinatra::Base
     RobotWorld.destroy(id.to_i)
     redirect "/robots"
   end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    user = params[:user]
+    Pony.mail :to => user[:email],
+              :from => "mailbot@robotworld.io",
+              :subject => "Welcome to the Wonderful World of Robots #{user[:name]}!!!",
+              :html_body => erb(:email)
+    redirect '/'
+  end
 end
